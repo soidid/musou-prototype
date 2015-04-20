@@ -2,6 +2,8 @@
 .search-bar
   - if @page_name == "schedule"
     input type="text" placeholder="搜尋戰況報告"
+  - if @page_name == "report"
+    input type="text" placeholder="搜尋報導"
   - if @page_name == "focus"
     input type="text" placeholder="搜尋場邊焦點"
   - if @page_name == "video"
