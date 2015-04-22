@@ -20,6 +20,9 @@
         background-color: darken($color-red, 10%);
       }
     }
+    span {
+      display: inline-block;
+    }
   }
   li + li {
     border-top: 1px solid lighten($color-black, 10%);
@@ -42,9 +45,65 @@
   }
 }
 
+/* menu bar 加上 icon 後 */
+.menu ul li.menu-nav-schedule a span.icon {
+    position: relative;
+    padding-left: 30px;
+    &:before {
+      content: "";
+      position: absolute;
+      top: -17px;
+      left: 0;
+      background-size: 100%;
+      @include replace-text-with-svg("menu_schedule");
+    }
+}
+.menu ul li.menu-nav-topic a span.icon {
+    position: relative;
+    padding-left: 30px;
+    &:before {
+      content: "";
+      position: absolute;
+      top: -16px;
+      left: 0;
+      background-size: 100%;
+      @include replace-text-with-svg("menu_topic");
+    }
+}
+.menu ul li.menu-nav-report a span.icon {
+    position: relative;
+    padding-left: 30px;
+    &:before {
+      content: "";
+      position: absolute;
+      top: -16px;
+      left: 0;
+      background-size: 80%;
+      @include replace-text-with-svg("menu_report");
+    }
+}
+.menu ul li.menu-nav-legislators a span.icon {
+    position: relative;
+    padding-left: 30px;
+    &:before {
+      content: "";
+      position: absolute;
+      top: -16px;
+      left: 0;
+      background-size: 100%;
+      @include replace-text-with-svg("menu_legislators");
+    }
+}
+
 @include at-breakpoint($desktop) {
   .main-nav {
+    /* 這是原本的 selector */
     li.active a {
+      padding: 18px 12px 15px;
+      border-bottom: 3px solid white;
+    }
+    /* 這是加了 icon 以後的 selector */
+    li span.active a {
       padding: 18px 12px 15px;
       border-bottom: 3px solid white;
     }

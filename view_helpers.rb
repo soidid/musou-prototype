@@ -11,7 +11,9 @@ module ViewHelpers
     if href == request.path.gsub(/[^\/]+$/, '')
        active = "active"
     end
-    content_tag(:li, link_to(name, href, options), :class => active )
+    content_tag(:span, 
+                link_to(content_tag(:span, '', :class => 'icon')+content_tag(:span, name,:class => nil), href, options),
+                :class => active )
   end
 
 end

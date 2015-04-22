@@ -557,13 +557,29 @@ ol.carousel-indicators { position: absolute; bottom: -10px; left: 50%; z-index: 
 @media (min-width: 900px) { .main-nav { float: right; } }
 @media (min-width: 900px) { .main-nav li { float: left; } }
 .main-nav li.active a { background-color: #55000c; }
+.main-nav li span { display: inline-block; }
 .main-nav li + li { border-top: 1px solid #4d4d4d; }
 @media (min-width: 900px) { .main-nav li + li { border-top: none; } }
 .main-nav a { display: block; padding: 18px 12px; color: white; font-weight: bold; }
 .main-nav a:hover { text-decoration: none; background-color: #700007; }
 .main-nav a.active { background-color: #55000c; }
 
-@media (min-width: 900px) { .main-nav li.active a { padding: 18px 12px 15px; border-bottom: 3px solid white; }
+/* menu bar 加上 icon 後 */
+.menu ul li.menu-nav-schedule a span.icon { position: relative; padding-left: 30px; }
+.menu ul li.menu-nav-schedule a span.icon:before { content: ""; position: absolute; top: -17px; left: 0; background-size: 100%; text-indent: -119988px; overflow: hidden; text-align: left; text-transform: capitalize; background-image: url('/images/menu_schedule.png?1429684782'); background-repeat: no-repeat; background-position: 50% 50%; width: 24px; height: 24px; background-image: none, url('/images/menu_schedule.svg?1429685077'); }
+
+.menu ul li.menu-nav-topic a span.icon { position: relative; padding-left: 30px; }
+.menu ul li.menu-nav-topic a span.icon:before { content: ""; position: absolute; top: -16px; left: 0; background-size: 100%; text-indent: -119988px; overflow: hidden; text-align: left; text-transform: capitalize; background-image: url('/images/menu_topic.png?1429681800'); background-repeat: no-repeat; background-position: 50% 50%; width: 24px; height: 24px; background-image: none, url('/images/menu_topic.svg?1429682217'); }
+
+.menu ul li.menu-nav-report a span.icon { position: relative; padding-left: 30px; }
+.menu ul li.menu-nav-report a span.icon:before { content: ""; position: absolute; top: -16px; left: 0; background-size: 80%; text-indent: -119988px; overflow: hidden; text-align: left; text-transform: capitalize; background-image: url('/images/menu_report.png?1429684808'); background-repeat: no-repeat; background-position: 50% 50%; width: 24px; height: 24px; background-image: none, url('/images/menu_report.svg?1429685125'); }
+
+.menu ul li.menu-nav-legislators a span.icon { position: relative; padding-left: 30px; }
+.menu ul li.menu-nav-legislators a span.icon:before { content: ""; position: absolute; top: -16px; left: 0; background-size: 100%; text-indent: -119988px; overflow: hidden; text-align: left; text-transform: capitalize; background-image: url('/images/menu_legislators.png?1429684837'); background-repeat: no-repeat; background-position: 50% 50%; width: 24px; height: 24px; background-image: none, url('/images/menu_legislators.svg?1429685102'); }
+
+@media (min-width: 900px) { .main-nav { /* 這是原本的 selector */ /* 這是加了 icon 以後的 selector */ }
+  .main-nav li.active a { padding: 18px 12px 15px; border-bottom: 3px solid white; }
+  .main-nav li span.active a { padding: 18px 12px 15px; border-bottom: 3px solid white; }
   .main-nav a { padding: 18px 12px 18px; }
   .main-nav a:hover { padding: 18px 12px 15px; border-bottom: 3px solid #700007; } }
 .open-menu .member { -moz-transform: translateX(260px); -ms-transform: translateX(260px); -webkit-transform: translateX(260px); transform: translateX(260px); }
