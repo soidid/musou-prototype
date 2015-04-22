@@ -105,7 +105,7 @@ pre {
     color: $global-text-color;
     font-size:  $base-font-size * 0.75;
     line-height: 1.6;
-    @extend %code-scroll;
+    @extend %code-scroll !optional;
   }
 }
 

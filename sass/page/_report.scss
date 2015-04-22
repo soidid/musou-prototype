@@ -1,2 +1,209 @@
 .report-list { @include pie-clearfix; }
+.report-list-item {
+  @include unstyled-link;
+  @include box-sizing(border-box);
+  display: block;
+  overflow: hidden;
+  @include trailer();
+  border: 1px solid darken($color-gray-light, 2.5%);
+  @include border-radius(5px);
+  background-color: $color-gray-light;
+  @include transition(background-color .25s);
+  &:hover {
+    @include unstyled-link;
+    background-color: lighten($color-gray-light, 2.5%);
+  }
+  .report-video-image {
+    overflow: hidden;
+    position: relative;
+    height: 0;
+    padding-top: 56.25%;
+    &:before {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      top: 50%;
+      left: 50%;
+      margin-top: -25px;
+      margin-left: -25px;
+      width: 50px;
+      height: 50px;
+      background-color: $color-black;
+      border: 3px solid white;
+      @include border-radius(100%);
+      opacity: .75;
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      z-index: 2;
+      top: 50%;
+      left: 50%;
+      margin-top: -7px;
+      margin-left: -6px;
+      border: 10px solid transparent;
+      border-left: 20px solid white;
+      opacity: .9;
+    }
+    img {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: auto;
+    }
+  }
+  .report-focus-image {
+    overflow: hidden;
+    position: relative;
+    height: 0;
+    padding-top: 56.25%;
+    &:before {
+      
+    }
+    &:after {
+      
+    }
+    img {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: auto;
+    }
+  }
+}
 
+.report-intro {
+  position: relative;
+  padding: 12px;
+  .title {
+    @include adjust-font-size-to(16px);
+    font-weight: bold;
+    @include ellipsis;
+  }
+  p.summary {
+    display: block;
+          overflow: hidden;
+          @include trailer(0);
+          height: 72px;
+          @include adjust-font-size-to(15px);
+          color: $text-black;
+          @include transition(color .25s);
+  }
+  
+}
+
+
+@include at-breakpoint($pad) {
+  .report-list-item {
+    @include span-columns(3);
+    @include nth-omega(2n);
+    &:nth-child(2n+1) { clear: right; }
+  }
+}
+
+@include at-breakpoint($desktop) {
+  .report-list-item {
+    @include span-columns(4);
+    @include remove-nth-omega(2n);
+    @include nth-omega(3n);
+    &:nth-child(3n+1) { clear: right; }
+  }
+}
+@include at-breakpoint(1025px 12) {
+  .report {
+    margin-bottom: rhythm(2);
+    .report-cover {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      color: white;
+      background-color: $color-black;
+      @include background-size(cover);
+      background-position: center center;
+      opacity: 1;
+      @include transition(opacity .75s);
+      &.is-hidden { opacity: 0; }
+      &.is-remove { display: none; }
+      &:before {
+        content: "";
+        position: absolute;
+        z-index: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        @include background( radial-gradient(transparent 0%, black 70%) );
+      }
+      .report-info {
+        background-color: transparent;
+        .report-info-inner {
+          
+          position: absolute;
+          top: 45%;
+          left: 0;
+          right: 0;
+          text-align: center;
+          @include text-shadow(0 0 15px black);
+          @include translateY(-50%);
+          h1 {
+            @include padding-leader(0);
+            @include adjust-font-size-to(44px);
+            font-weight: bold;
+          }
+          .meta-info {
+            display: block;
+            @include leader(.5);
+            color: white;
+            @include adjust-font-size-to(16px);
+            font-weight: bold;
+            .label {
+              color: white;
+              font-weight: bold;
+            }
+          }
+          .play-button {
+            position: relative;
+            display: block;
+            @include leader(3);
+            text-indent: -119988px;
+            cursor: pointer;
+            &:before {
+              content: "";
+              position: absolute;
+              z-index: 1;
+              top: 50%;
+              left: 50%;
+              margin-top: -40px;
+              margin-left: -40px;
+              width: 80px;
+              height: 80px;
+              background-color: $color-black;
+              border: 3px solid white;
+              @include border-radius(100%);
+              opacity: .75;
+            }
+            &:after {
+              content: "";
+              position: absolute;
+              z-index: 2;
+              top: 50%;
+              left: 50%;
+              margin-top: -12px;
+              margin-left: -10px;
+              border: 15px solid transparent;
+              border-left: 30px solid white;
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+}

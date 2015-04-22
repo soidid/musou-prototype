@@ -1,13 +1,10 @@
 - video_type = [ '好球', '烏龍球', '界外球' ]
 
 - 3.times do
-  a.video-list-item href="/video/video-post.html"
-    .video-image
+  a.report-list-item href="/video/video-post.html"
+    .report-video-image
       = image_tag("http://lorem.me/480x270/#{rand(100)}")
-    .video-intro
-      - rand(2).times do
-        .highlight 精選
-        / .watchout 沃草文章
+    .report-intro
       h3.title #{"["}#{video_type[rand(3)]}#{"]"} #{zh_lorem_sentence}
       .meta-info
         .meta
@@ -16,3 +13,19 @@
         .meta
           .label 作者
           = zh_lorem_name
+      p.summary = zh_lorem_paragraphs 1
+
+- 6.times do
+  a.report-list-item href="/focus/post.html"
+    .report-focus-image
+      = image_tag("http://lorem.me/480x270/#{rand(100)}")
+    .report-intro
+      h3.title #{zh_lorem_sentence}
+      .meta-info
+        .meta
+          .label 日期
+          = lorem_date.to_date
+        .meta
+          .label 作者
+          = zh_lorem_name
+      p.summary = zh_lorem_paragraphs 1
